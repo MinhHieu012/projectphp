@@ -2,16 +2,26 @@
 	padding:0 15px;
 	margin-top:20px;}
 #product-head, #product-body, #comment, #comments-list{
-	background:#FFF;
+	background:rgb(245, 3, 3);
 	border-radius:3px;
 	padding:10px 0;}
-#product-img{
-	text-align:center;}	
-#product-img img{
-	width:250px;}
-#product-details h1, #product-body h3, #comment h3{
+#product-img {
+	text-align:center;
+}	
+#product-img img {
+	width: 200px;
+	height: 200px;
+}
+#product-details h1, #product-body h3, #comment h3 {
 	font-size:18px;
-	font-weight:bold;}	
+	font-weight:bold;}
+	
+#product-details h1 {
+	position: relative;
+	padding-top: 20px;
+	top: 30px;
+}
+
 #product-details ul li{
 	list-style:none;
 	height:30px;

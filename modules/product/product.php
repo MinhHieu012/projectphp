@@ -15,10 +15,10 @@
 <div id="product">
     <div id="product-head" class="row">
         <div id="product-img" class="col-lg-6 col-md-6 col-sm-12">
-            <img src="admin/images/<?php echo $product['prd_image']; ?>">
+            <img src="./admin/images/<?php echo $product['prd_image']; ?>" width="300px" height="300px">
         </div>
         <div id="product-details" class="col-lg-6 col-md-6 col-sm-12">
-            <h1><?php echo $product['prd_name']; ?></h1>
+            <h1 style="padding-top: 30px;"><?php echo $product['prd_name']; ?></h1>
             <ul>
                 <li><span>Bảo hành:</span> <?php echo $product['prd_warranty']; ?></li>
                 <li><span>Đi kèm:</span> <?php echo $product['prd_accessories']; ?></li>

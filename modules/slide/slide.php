@@ -13,22 +13,19 @@
     <!-- The slideshow -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="images/slide-1.png" alt="Google Academy">
+            <img src="images/slide-1.jpg" width="730px" height="310px" alt="Google Academy">
         </div>
         <div class="carousel-item">
-            <img src="images/slide-2.png" alt="Google Academy">
+            <img src="images/slide-2.png" width="730px" height="310px" alt="Google Academy">
         </div>
         <div class="carousel-item">
-            <img src="images/slide-3.png" alt="Google Academy">
+            <img src="images/slide-3.png" width="730px" height="310px" alt="Google Academy">
         </div>
         <div class="carousel-item">
-            <img src="images/slide-4.png" alt="Google Academy">
+            <img src="images/slide-4.png" width="730px" height="310px" alt="Google Academy">
         </div>
         <div class="carousel-item">
-            <img src="images/slide-5.png" alt="Google Academy">
-        </div>
-        <div class="carousel-item">
-            <img src="images/slide-6.png" alt="Google Academy">
+            <img src="images/slide-5.png" width="730px" height="310px" alt="Google Academy">
         </div>
     </div>
 
