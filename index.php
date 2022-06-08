@@ -91,8 +91,8 @@
             </div>
             <div id="address" class="col-lg-3 col-md-6 col-sm-12">
             	<h3>Địa chỉ</h3>
-                <p>Hưng Thịnh - Yên Sở Hoàng Mai - Hà Nội</p>
-                <p>Hưng Thịnh - Yên Sở Hoàng Mai - Hà Nội</p>
+                <p>Hà Nội</p>
+                <p>A17 Tạ Quang Bửu - Hà Nội</p>
             </div>
             <div id="service" class="col-lg-3 col-md-6 col-sm-12">
             	<h3>Dịch vụ</h3>
@@ -101,8 +101,8 @@
             </div>
             <div id="hotline" class="col-lg-3 col-md-6 col-sm-12">
             	<h3>Hotline</h3>
-            	<p>Phone Sale: (+84) 0395954444</p>
-                <p>Email: huynguyenhuynv@gmail.com</p>
+            	<p>Phone Sale: (+84) 0349495353</p>
+                <p>Email: tung@gmail.com</p>
             </div>
         </div>
     </div>
