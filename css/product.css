@@ -15,12 +15,6 @@
 #product-details h1, #product-body h3, #comment h3 {
 	font-size:18px;
 	font-weight:bold;}
-	
-#product-details h1 {
-	position: relative;
-	padding-top: 20px;
-	top: 30px;
-}
 
 #product-details ul li{
 	list-style:none;
