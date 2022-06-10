@@ -1,19 +1,24 @@
 <?php 
     //Số lượng bản ghi (sản phẩm) trên 01 trang.
     $rowPerPage = 5;
+
     //Câu truy vấn lấy tất cả các bản ghi trong bảng product(để tính tổng các bản ghi)
     $sqlProduct = "SELECT prd_id FROM product";
     $resultAll = mysqli_query($conn, $sqlProduct);
+
     //Lấy số bản ghi của bảng product
     $totalRecords = mysqli_num_rows($resultAll);
+
     //Tổng số trang = tổng số bản ghi chia làm tròn lên cho tổng số bản ghi trên 01 trang
     $totalPage = ceil($totalRecords/$rowPerPage);
+
     //Lấy số trang từ biến current_page trên url
     if(isset($_GET['current_page'])) {
         $current_page = $_GET['current_page'];
     }else{
         $current_page = 1;
     }
+
     //Kiểm tra số trang hợp lệ
     if($current_page < 1) {
         $current_page = 1;
@@ -22,11 +27,13 @@
     if($current_page > $totalPage) {
         $current_page = $totalPage;
     }
+
     //câu truy vấn lấy bản ghi đã phân trang
     $start = ($current_page - 1) * $rowPerPage;
     $sqlPagination = "SELECT * FROM product INNER JOIN category ON product.cat_id =  category.cat_id ORDER BY prd_id DESC LIMIT $start, $rowPerPage";
     $resultPagination = mysqli_query($conn, $sqlPagination);
     ?>
+    
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
     <div class="row">
         <ol class="breadcrumb">

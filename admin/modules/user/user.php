@@ -8,12 +8,12 @@
     
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Danh sách thành viên</h1>
+            <h1 class="page-header">Danh sách nhân viên</h1>
         </div>
     </div><!--/.row-->
     <div id="toolbar" class="btn-group">
         <a href="thanhvien-add.html" class="btn btn-success">
-            <i class="glyphicon glyphicon-plus"></i> Thêm thành viên
+            <i class="glyphicon glyphicon-plus"></i> Thêm nhân viên
         </a>
     </div>
     <div class="row">

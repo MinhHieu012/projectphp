@@ -73,12 +73,12 @@
 .by-now:last-child{
 	text-align:left;}	
 
-#update-cart{
+#update-cart-1{
     border-radius: 3px;
     border: 1px solid #305eb3;
     background: #305eb3;
     padding: 15px 20px;
-    color: #FFF;
+    color: rgb(0, 0, 0);
 }
 #update-cart:hover{
     background: #FFFFFF;
@@ -88,12 +88,7 @@
 	.by-now:first-child{
 		text-align:left;}
 }	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

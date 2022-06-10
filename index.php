@@ -1,4 +1,5 @@
-<?php 
+<?php
+    session_start();
     include_once "config/db.php";
 ?>
 <!DOCTYPE html>

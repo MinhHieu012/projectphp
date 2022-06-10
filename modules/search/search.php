@@ -1,13 +1,37 @@
 <?php 
-    $keyword= "";
-    if(isset($_GET['keyword'])){
-        $keyword = $_GET['keyword']; //iphone xs
-        $arr_keyword = explode(" ", $keyword); //['iphone','xs']
-        $str_keyword = '%'.implode("%",$arr_keyword).'%'; //%iphone%xs%
-        $sqlSearch = "SELECT * FROM product WHERE prd_name LIKE '$str_keyword'";
-        $querySearch = mysqli_query($conn,$sqlSearch);
-    }
-?>
+//Số lượng bản ghi (sản phẩm) trên 01 trang.
+$rowPerPage = 3;
+$keyword = "";
+if (isset($_GET['keyword'])) {
+    $keyword = $_GET['keyword']; 
+    $arr_keyword = explode(" ", $keyword); 
+    $str_keyword = '%' . implode("%", $arr_keyword) . '%'; 
+    $sqlSearch = "SELECT * FROM product WHERE prd_name LIKE '$str_keyword'";
+    $querySearch = mysqli_query($conn, $sqlSearch);
+    //Lấy số bản ghi của bảng product
+    $totalRecords = mysqli_num_rows($querySearch);
+}
+//Tổng số trang = tổng số bản ghi chia làm tròn lên cho tổng số bản ghi trên 01 trang
+$totalPage = ceil($totalRecords / $rowPerPage);
+//Lấy số trang từ biến current_page trên url
+if (isset($_GET['current_page'])) {
+    $current_page = $_GET['current_page'];
+} else {
+    $current_page = 1;
+}
+//Kiểm tra số trang hợp lệ
+if ($current_page < 1) {
+    $current_page = 1;
+}
+
+if ($current_page > $totalPage) {
+    $current_page = $totalPage;
+}
+//câu truy vấn lấy bản ghi đã phân trang
+$start = ($current_page - 1) * $rowPerPage;
+$sqlPagination = "SELECT * FROM product WHERE prd_name LIKE '$str_keyword' LIMIT $start, $rowPerPage";
+$resultPagination = mysqli_query($conn, $sqlPagination)
+        ?>  
 <!--	List Product	-->
 <div class="products">
     <div id="search-result">Kết quả tìm kiếm với sản phẩm <span> <?php echo $keyword; ?></span></div>
@@ -23,7 +47,7 @@
                 </div>
             </div>
         <?php
-            }
+            
         } ?>
         
 
@@ -32,11 +56,39 @@
 <!--	End List Product	-->
 
 <div id="pagination">
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Trang trước</a></li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Trang sau</a></li>
+<ul class="pagination">
+        <!-- Hiển thị nút bấm trở về trang trước -->
+        <?php if ($current_page > 1) { ?>
+            <li class="page-item"><a class="page-link" href="index.php?page_layout=search&keyword=<?php echo $keyword; ?>&current_page=<?php echo $current_page - 1; ?>">Trang trước</a></li>
+        <?php } else { ?>
+            <li class="page-item disabled"><a class="page-link">Trang trước</a></li>
+        <?php } ?>
+        <!-- Hiển thị các nút phân trang -->
+        <?php for ($i = 1; $i <= $totalPage; $i++) {
+            if ($i >= $current_page - 2 && $i <= $current_page + 2) {
+        ?>
+
+                <?php if ($i == $current_page) { ?>
+                    <li class="page-item active"><a class="page-link" href="index.php?page_layout=search&keyword=<?php echo $keyword; ?>&current_page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                <?php } else { ?>
+                    <li class="page-item"><a class="page-link" href="index.php?page_layout=search&keyword=<?php echo $keyword; ?>&current_page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                <?php } ?>
+
+        <?php
+            }
+        }
+        ?>
+        <!-- Hiển thị nút chuyển trang kế tiếp -->
+        <?php if ($current_page < $totalPage) { ?>
+            <li class="page-item"><a class="page-link" href="index.php?page_layout=search&keyword=<?php echo $keyword; ?>&current_page=<?php echo $current_page + 1; ?>">Trang sau</a></li>
+        <?php } else { ?>
+            <li class="page-item disabled"><a class="page-link">Trang sau</a></li>
+        <?php } ?>
     </ul>
 </div>
+<?php        
+    }else{
+        echo '<div class = "alert alert-danger"> Từ khóa tìm kiếm không hợp lệ.</div>';
+        }
+?>
+                                                                  

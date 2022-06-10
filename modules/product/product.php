@@ -15,10 +15,10 @@
 <div id="product">
     <div id="product-head" class="row">
         <div id="product-img" class="col-lg-6 col-md-6 col-sm-12">
-            <img src="./admin/images/<?php echo $product['prd_image']; ?>" width="300px" height="300px">
+            <img src="admin/images/<?php echo $product['prd_image']; ?>" width="300px" height="300px>
         </div>
         <div id="product-details" class="col-lg-6 col-md-6 col-sm-12">
-            <h1 style="padding-top: 30px;"><?php echo $product['prd_name']; ?></h1>
+            <h1><?php echo $product['prd_name']; ?></h1>
             <ul>
                 <li><span>Bảo hành:</span> <?php echo $product['prd_warranty']; ?></li>
                 <li><span>Đi kèm:</span> <?php echo $product['prd_accessories']; ?></li>
@@ -36,7 +36,7 @@
                     ?>
                 </li>
             </ul>
-            <div id="add-cart"><a href="#">Mua ngay</a></div>
+            <div id="add-cart"><a href="modules/cart/process_cart.php?action=add&prd_id=<?php echo $product['prd_id']; ?>">Mua ngay</a></div>
         </div>
     </div>
     <div id="product-body" class="row">

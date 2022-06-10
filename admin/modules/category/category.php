@@ -13,7 +13,7 @@
 		</div>
 	</div><!--/.row-->
 	<div id="toolbar" class="btn-group">
-		<a href="category-add.html" class="btn btn-success">
+		<a href="add_category.php" class="btn btn-success">
 			<i class="glyphicon glyphicon-plus"></i> Thêm danh mục
 		</a>
 	</div>

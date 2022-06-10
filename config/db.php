@@ -1,7 +1,7 @@
 <?php
-    $hostname = 'localhost';
+    $hostname = 'localhost:3360';
     $username = 'root';
-    $password = 'root';
+    $password = '';
     $database = 'shopdongho';
 
     $conn = mysqli_connect($hostname, $username, $password, $database);
