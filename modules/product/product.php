@@ -36,7 +36,7 @@
                     ?>
                 </li>
             </ul>
-            <div id="add-cart"><a href="modules/cart/process_cart.php?action=add&prd_id=<?php echo $product['prd_id']; ?>">Mua ngay</a></div>
+            <div id="add-cart"><button><a href="modules/cart/process_cart.php?action=add&prd_id=<?php echo $product['prd_id']; ?>">Mua ngay</a></button></div>
         </div>
     </div>
     <div id="product-body" class="row">

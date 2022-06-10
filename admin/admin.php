@@ -104,6 +104,15 @@
 				case 'edit_user':
 					require_once "modules/user/edit_user.php";
 					break;
+				case 'order':
+					require_once "modules/order/order.php";
+					break;
+				case 'order_processed':
+					require_once "modules/order/order_process.php";
+					break;
+				case 'order_detail':
+					require_once "modules/order/order_detail.php";
+					break;
 			}
 		}else{
 			require_once "static.php";

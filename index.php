@@ -115,12 +115,20 @@
     	<div class="row">
         	<div class="col-lg-12 col-md-12 col-sm-12">
             	<p>
-                    2022 © Online Mobile Shop. All rights reserved. Developed by Google Software.
+                    2022 © Online Watch Shop. All rights reserved. Developed by Google Software.
                 </p>
             </div>
         </div>
     </div>
 </div>
+
+
 <!--	End Footer	-->
+
+
+
+
+
 </body>
 </html>
+

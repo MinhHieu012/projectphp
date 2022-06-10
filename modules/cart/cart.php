@@ -10,7 +10,12 @@ if (isset($_SESSION['cart'])) {
 ?>
 
     <!--	Cart	-->
+
     <style>
+        #quantity {
+            position: relative;
+            top: 30px;
+        }
         .cart-nav-item {
             margin-top: 15px;
             margin-bottom: 15px;
@@ -23,12 +28,17 @@ if (isset($_SESSION['cart'])) {
         #update-cart-1 {
             margin-top: 15px;
         }
+        .cart-price-total {
+            position: relative;
+            top: 20px;
+        }
         .cart-total {
-            margin-top: 15px;
+            position: relative;
+            top: 20px;
         }
         .cart-price-1 {
             position: relative;
-            top: 5px;
+            top: 35px;
             font-size: 15px;
         }
         #giaca {
@@ -37,6 +47,7 @@ if (isset($_SESSION['cart'])) {
         }
         #xoa {
             position: relative;
+            top: 1px;
             right: -40px;
             font-size: 15px;
         }
@@ -47,8 +58,19 @@ if (isset($_SESSION['cart'])) {
         #user_add {
             margin-bottom: 15px;
         }
+        #by-now {
+            position: relative;
+            left: 100px;
+            border-radius: 5px;
+            top: 5px;
+        }
+        #amortization-pay {
+            position: relative;
+            border-radius: 5px;
+            top: 5px;
+        }
     </style>
-    
+
     <div id="my-cart">
         <div class="row">
             <div class="cart-nav-item col-lg-7 col-md-7 col-sm-12">Thông tin sản phẩm</div>
@@ -71,8 +93,7 @@ if (isset($_SESSION['cart'])) {
                         </div>
 
                         <div class="cart-quantity col-lg-2 col-md-2 col-sm-12">
-                            <input type="number" id="quantity" class="form-control form-blue quantity" value="<?php echo $_SESSION['cart'][$cart['prd_id']]; ?>" name="quantity[<?php echo $cart['prd_id']; ?>]">
-                            
+                            <input type="number" id="quantity" class="form-control form-blue quantity" value="<?php echo $_SESSION['cart'][$cart['prd_id']]; ?>" name="quantity[<?php echo $cart['prd_id']; ?>]" value="">
                         </div>
                         <div class="cart-price-1 col-lg-3 col-md-3 col-sm-12"><b><?php echo number_format($price_unit, 0, ',', '.'); ?>đ</b><a id="xoa" href="modules/cart/process_cart.php?action=del&prd_id=<?php echo $cart['prd_id']; ?>">Xóa</a></div>
                     </div>
@@ -86,7 +107,7 @@ if (isset($_SESSION['cart'])) {
                     <button id="update-cart-1" class="btn btn-success" type="submit" name="update_cart">Cập nhật giỏ hàng</button>
                 </div>
                 <div class="cart-total col-lg-2 col-md-2 col-sm-12"><b>Tổng cộng:</b></div>
-                <div class="cart-price col-lg-3 col-md-3 col-sm-12"><b id="giaca"><?php echo number_format($total_price, 0, ',', '.'); ?>đ</b></div>
+                <div class="cart-price-total col-lg-3 col-md-3 col-sm-12"><b><?php echo number_format($total_price, 0, ',', '.'); ?>đ</b></div>
             </div>
 
 
@@ -117,13 +138,12 @@ if (isset($_SESSION['cart'])) {
 
         <div class="row">
             <div class="by-now col-lg-6 col-md-6 col-sm-12">
-            <button id="by-now" class="btn btn-success" onclick = "return validateform();" type= "submit" name="insert_cart"> <span style="color: white;">Mua ngay</span>
-                    <span style="color: white;">giao hàng tận nơi siêu tốc</span>
+            <button id="by-now" class="btn btn-success" onclick = "return validateForm();" type= "submit" name="insert_cart"> <b style="color: white">Mua ngay <br> <i>Giao hàng tận nơi siêu tốc</i></b>
+                    
                 </button> 
             </div>
             <div class="by-now col-lg-6 col-md-6 col-sm-12">
-            <button id="amortization-pay" class="btn btn-danger" type="submit" name="update_cart"> <span style="color: white;">Trả góp Online</span>
-                    <span style="color: white;">vui lòng gọi đến hotline: 0349495353</span>
+            <button id="amortization-pay" class="btn btn-danger" type="submit" name="amortization-pay"><b style="color: white">Trả góp Online<br><i>Vui lòng call (+84) 0349495353</i></b>
                 </button> 
             </div>
         </div>
@@ -145,9 +165,10 @@ function validate(elementId, elementIdError, message) {
     let check=true;
     let el = getElementObj(elementId);
     let el_error = getElementObj(elementIdError);
-    if(el.value ==''){
+    
+    if(el.value =='') { 
         check=false;
-        el_error.innerHTML = "";
+        el_error.innerHTML = message;
         el.style.border = "1px solid red";
         el.style.borderRadius = "0.25rem";
     }else{
@@ -158,12 +179,12 @@ function validate(elementId, elementIdError, message) {
     }
     return check;
 }
-function validateForm () {
+function validateForm(){
     let isSubmited=true;
-    let check_user=validate('user_name','user_name_error','Bạn phải nhập họ tên');                     
-    let check_email=validate('user_email','user_email_error','Bạn phải nhập email');                    
-    let check_phone=validate('user_phone','user_phone_error','Bạn phải nhập sđt');
-    let check_add=validate('user_add','user_add_error','Bạn phải nhập địa chỉ');
+    let check_user = validate('user_name','user_name_error','Bạn phải nhập họ tên');                     
+    let check_email = validate('user_mail','user_mail_error','Bạn phải nhập mail');                    
+    let check_phone = validate('user_phone','user_phone_error','Bạn phải nhập sđt');
+    let check_add = validate('user_add','user_add_error','Bạn phải nhập địa chỉ');
     if(check_user == false || check_email == false || check_phone == false || check_add == false){
         isSubmited=false;
    }

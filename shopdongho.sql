@@ -210,11 +210,6 @@ CREATE TABLE IF NOT EXISTS `OrderDetail` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=6 ;
 
 
-
---
--- Cấu trúc bảng cho bảng `settings`
---
-
 CREATE TABLE `settings` (
   `s_id` int(11) NOT NULL,
   `s_lable` varchar(255) NOT NULL,
@@ -224,7 +219,7 @@ CREATE TABLE `settings` (
 
 
 INSERT INTO `settings` VALUES
-(1, 'email', 'admin@gmail.com'),
+(1, 'email', 'tung@gmail.com'),
 (2,	'address1','Ha Noi'),
 (3, 'address2','A17, Ta Quang Buu, Ha Noi'),
 (4, 'phone', '0349495353')
